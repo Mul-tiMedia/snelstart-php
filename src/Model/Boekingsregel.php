@@ -9,7 +9,7 @@ namespace SnelstartPHP\Model;
 use Money\Money;
 use SnelstartPHP\Model\Type\BtwSoort;
 
-class Boekingsregel extends BaseObject
+class Boekingsregel extends SnelstartObject
 {
     /**
      * De omschrijving van de boekingsregel.

@@ -45,6 +45,7 @@ class BoekingMapper extends AbstractMapper
 
     public function mapBijlageResult(Model\Bijlage $bijlage, array $data = []): Model\Bijlage
     {
+
         $data = empty($data) ? $this->responseData : $data;
         $bijlage = $this->mapArrayDataToModel($bijlage, $data);
 
@@ -111,8 +112,9 @@ class BoekingMapper extends AbstractMapper
         return $verkoopboeking;
     }
 
-    public function mapBoekingResult(Model\Boeking $boeking, array $data = []): Model\Boeking
+    public function mapBoekingResult(Model\Verkoopboeking $boeking, array $data = []): Model\Verkoopboeking
     {
+
         $data = empty($data) ? $this->responseData : $data;
 
         /**
@@ -137,10 +139,12 @@ class BoekingMapper extends AbstractMapper
         }
 
         $boekingsregels = [];
+        //pre($data["boekingsregels"]);
         foreach ($data["boekingsregels"] ?? [] as $boekingsregel) {
+        	//pre($boekingsregel,true);
             $boekingsregelObject = (new Model\Boekingsregel())
                 ->setOmschrijving($boekingsregel["omschrijving"])
-                ->setGrootboek(Model\Grootboek::createFromUUID(Uuid::fromString($boekingsregel["grootboek"]["id"])))
+                ->setGrootboek(Model\Grootboek::createFromUUID(Uuid::fromString('b41f472d-1c62-4a65-ae63-62b80eec7677')))
                 ->setBedrag(Snelstart::getMoneyParser()->parse((string) $boekingsregel["bedrag"], Snelstart::getCurrency()))
                 ->setBtwSoort(new Model\Type\BtwSoort($boekingsregel["btwSoort"]));
 

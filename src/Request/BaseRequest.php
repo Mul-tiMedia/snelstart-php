@@ -76,7 +76,6 @@ abstract class BaseRequest
 
             $serialize[$editableAttributeName] = $value;
         }
-
         return $serialize;
     }
 }

@@ -20,7 +20,7 @@ class Kostenplaats extends SnelstartObject
      *
      * @var bool
      */
-    private $nonactief;
+    private $nonactief = false;
 
     /**
      * Het nummer van de kostenplaats.
@@ -28,4 +28,38 @@ class Kostenplaats extends SnelstartObject
      * @var int
      */
     private $nummer;
+
+	public static $editableAttributes = [
+		"omschrijving",
+		"nummer",
+		"nonactief",
+	];
+    public function setOmschrijving(string $omschrijving): self
+	{
+		$this->omschrijving = $omschrijving;
+		return $this;
+	}
+
+    public function getOmschrijving(): string
+	{
+		return $this->omschrijving;
+	}
+
+	public function setNummer(int $nummer): self
+	{
+		$this->nummer = $nummer;
+		return $this;
+	}
+
+	public function getNummer(): int
+	{
+		return $this->nummer;
+	}
+	
+	public function setNonactief(bool $nonactief): self
+	{
+		$this->nonactief = $nonactief;
+		return $this;
+	}
+
 }

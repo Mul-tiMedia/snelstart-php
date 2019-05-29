@@ -78,6 +78,10 @@ class Verkooporder extends SnelstartObject
      * @var Kostenplaats
      */
     private $kostenplaats;
+    /**
+     * @var Kostenplaats
+     */
+    private $grootboek;
 
     /**
      * @var VerkooporderRegel[]
@@ -120,6 +124,7 @@ class Verkooporder extends SnelstartObject
         'factuuradres',
         'verkooporderBtwIngaveModel',
         'kostenplaats',
+		'grootboek',
         'regels',
         'memo',
         'orderreferentie',
@@ -351,6 +356,13 @@ class Verkooporder extends SnelstartObject
     public function getKostenplaats(): ?Kostenplaats
     {
         return $this->kostenplaats;
+    }
+    /**
+     * @return Kostenplaats
+     */
+    public function getGrootboek(): ?Grootboek
+    {
+        return $this->grootboek;
     }
 
     /**

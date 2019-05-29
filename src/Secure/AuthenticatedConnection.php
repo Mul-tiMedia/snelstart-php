@@ -107,8 +107,8 @@ class AuthenticatedConnection implements ConnectionInterface
             throw new SnelstartResourceNotFoundException($serverException->getMessage(), $serverException->getCode(), $serverException);
         } catch (ClientException $clientException) {
             $response = $clientException->getResponse();
-
             if ($response->getStatusCode() === 400) {
+
                 $jsonBody = (string) $response->getBody();
                 $body = \GuzzleHttp\json_decode($jsonBody, true);
 

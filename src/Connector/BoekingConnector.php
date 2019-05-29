@@ -92,6 +92,7 @@ class BoekingConnector extends BaseConnector
 
     public function addVerkoopboeking(Verkoopboeking $verkoopboeking): Verkoopboeking
     {
+
         if ($verkoopboeking->getId() !== null) {
             throw new PreValidationException("New records should not have an ID.");
         }
@@ -102,11 +103,13 @@ class BoekingConnector extends BaseConnector
             $verkoopboeking->setBetalingstermijn((int) (new \DateTime())->diff($verkoopboeking->getVervaldatum())->format("%a"));
         }
 
+
         return BoekingMapper::addVerkoopboeking($this->connection->doRequest(BoekingRequest::addVerkoopboeking($verkoopboeking)));
     }
 
     public function addVerkoopboekingBijlage(Verkoopboeking $verkoopboeking, VerkoopboekingBijlage $bijlage): Bijlage
     {
+
         if ($verkoopboeking->getId() === null) {
             throw new PreValidationException("We can only add an attachment to an existing booking.");
         }

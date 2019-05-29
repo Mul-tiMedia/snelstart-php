@@ -65,7 +65,7 @@ class BoekingRequest extends BaseRequest
 
     public static function addAttachmentToVerkoopboeking(Verkoopboeking $verkoopboeking, Bijlage $bijlage): RequestInterface
     {
-        return new Request("POST", sprintf("verkoopboekingen/%s/bijlagen", $verkoopboeking->getId()), [
+        return new Request("POST", "documenten/Verkoopboekingen",[
             "Content-Type"  =>  "application/json"
         ], \GuzzleHttp\json_encode(self::prepareAddOrEditRequestForSerialization($bijlage)));
     }

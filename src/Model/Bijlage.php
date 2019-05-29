@@ -29,8 +29,13 @@ abstract class Bijlage extends SnelstartObject
      */
     protected $readOnly = true;
 
+	/**
+	 * Het document waaraan gekoppeld is
+	 * @var string
+	 */
+
+    
     public static $editableAttributes = [
-        "id",
         "content",
         "fileName",
         "readOnly",
@@ -71,6 +76,10 @@ abstract class Bijlage extends SnelstartObject
 
         return $this;
     }
+
+
+
+
 
     public static function createFromFile(\SplFileObject $file): self
     {

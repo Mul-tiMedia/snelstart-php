@@ -13,10 +13,10 @@ class VerkoopboekingBijlage extends Bijlage
     /**
      * @var UuidInterface
      */
-    private $verkoopBoekingId;
-
+    //private $verkoopBoekingId;
+	private $parentIdentifier;
     public static $editableAttributes = [
-        "verkoopBoekingId",
+		"parentIdentifier"
     ];
 
     public static function getEditableAttributes(): array
@@ -31,6 +31,7 @@ class VerkoopboekingBijlage extends Bijlage
         return $this->verkoopBoekingId;
     }
 
+
     public function getVerkoopBoeking(): ?Verkoopboeking
     {
         if ($this->verkoopBoekingId === null) {
@@ -40,10 +41,22 @@ class VerkoopboekingBijlage extends Bijlage
         return Verkoopboeking::createFromUUID($this->verkoopBoekingId);
     }
 
-    public function setVerkoopBoekingId(UuidInterface $verkoopBoekingId): self
+    public function setVerkoopBoekingId($verkoopBoekingId): self
     {
         $this->verkoopBoekingId = $verkoopBoekingId;
 
         return $this;
     }
+	public function setParentIdentifier($id): self
+	{
+		$this->parentIdentifier = $id;
+		return $this;
+	}
+	public function getParentIdentifier(): ?UuidInterface
+	{
+		if($this->parentIdentifier === null){
+			return null;
+		}
+		return $this->parentIdentifier;
+	}
 }
