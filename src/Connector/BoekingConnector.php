@@ -103,7 +103,6 @@ class BoekingConnector extends BaseConnector
             $verkoopboeking->setBetalingstermijn((int) (new \DateTime())->diff($verkoopboeking->getVervaldatum())->format("%a"));
         }
 
-
         return BoekingMapper::addVerkoopboeking($this->connection->doRequest(BoekingRequest::addVerkoopboeking($verkoopboeking)));
     }
 

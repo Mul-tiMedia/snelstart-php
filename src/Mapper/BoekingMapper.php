@@ -139,9 +139,7 @@ class BoekingMapper extends AbstractMapper
         }
 
         $boekingsregels = [];
-        //pre($data["boekingsregels"]);
         foreach ($data["boekingsregels"] ?? [] as $boekingsregel) {
-        	//pre($boekingsregel,true);
             $boekingsregelObject = (new Model\Boekingsregel())
                 ->setOmschrijving($boekingsregel["omschrijving"])
                 ->setGrootboek(Model\Grootboek::createFromUUID(Uuid::fromString('b41f472d-1c62-4a65-ae63-62b80eec7677')))

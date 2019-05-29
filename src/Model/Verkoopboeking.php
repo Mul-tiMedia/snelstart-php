@@ -123,10 +123,9 @@ class Verkoopboeking extends SnelstartObject
     }
 	public function setBoekingsRegels(array $regels): self
 	{
-
 		foreach ($regels as $regel) {
 			if (!$regel instanceof Boekingsregel) {
-				throw new \InvalidArgumentException(sprintf("Should be a type of '%s'", VerkooporderRegel::class));
+				throw new \InvalidArgumentException(sprintf("Should be a type of '%s'", Boekingsregel::class));
 			}
 		}
 
@@ -230,7 +229,6 @@ class Verkoopboeking extends SnelstartObject
 		foreach ($this->getBoekingsregels() as $boekingsregel) {
 			$targetAmount->subtract($boekingsregel->getBedrag());
 		}
-
 		if ($targetAmount->isZero()) {
 			throw new BookingNotInBalanceException();
 		}
