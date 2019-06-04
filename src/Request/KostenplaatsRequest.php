@@ -24,7 +24,6 @@ class KostenplaatsRequest Extends BaseRequest
     }
 	public static function addKostenplaats(Kostenplaats $kostenplaats): RequestInterface
 	{
-		pre($kostenplaats);
 		return new Request("POST", "kostenplaatsen", [
 			"Content-Type"  =>  "application/json"
 		], \GuzzleHttp\json_encode(self::prepareAddOrEditRequestForSerialization($kostenplaats)));
