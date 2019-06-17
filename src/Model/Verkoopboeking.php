@@ -23,6 +23,7 @@ class Verkoopboeking extends SnelstartObject
 	private $vervalDatum;
 	private $btw;
 	private $modifiedOn;
+	private $openstaandSaldo;
     /**
      * De betalingstermijn (in dagen) van de verkoopboeking.
      *
@@ -173,7 +174,15 @@ class Verkoopboeking extends SnelstartObject
 	{
 		return $this->factuurnummer;
 	}
-
+	public function getOpenstaandsaldo()
+	{
+		return $this->openstaandSaldo;
+	}
+	public function setOpenstaandsaldo($openstaandSaldo): self
+	{
+		$this->openstaandSaldo = $openstaandSaldo;
+		return $this;
+	}
 	public function setFactuurnummer(string $factuurnummer): self
 	{
 		$this->factuurnummer = $factuurnummer;
