@@ -146,7 +146,7 @@ class BoekingMapper extends AbstractMapper
                 ->setBtwSoort(new Model\Type\BtwSoort($boekingsregel["btwSoort"]));
 
 			/* We sturen hem wel mee, maar krijgen hem niet terug vanuit de Snelstart API zodra die niet bestaat niet setten */
-			if ($boekingsregel['grootboek']['id']) {
+			if (isset($boekingsregel['grootboek']['id'])) {
 				$boekingsregelObject->setGrootboek(Model\Grootboek::createFromUUID(Uuid::fromString($boekingsregel['grootboek']['id'])));
 			}
 
